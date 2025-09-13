@@ -42,6 +42,13 @@ stages:
       - task: TerraformTask@5
         inputs:
           provider: 'azurerm'
+          command: 'init'
+          backendAzureRmStorageAccountName: 'stg1640'
+          backendAzureRmContainerName: 'containeryaml'
+          backendAzureRmKey: 'yaml.tfstate'
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
           command: 'apply'
           workingDirectory: '$(System.DefaultWorkingDirectory)'
           environmentServiceNameAzureRM: 'Service Connection'
