@@ -39,10 +39,9 @@ stages:
     - job: Terraform_Apply
       pool: Agent Pool 1
       steps:
-        - 
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/Omkar_Sir'
-    environmentServiceNameAzureRM: 'Service Connection'
+      - task: TerraformTask@5
+        inputs:
+          provider: 'azurerm'
+          command: 'apply'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/Omkar_Sir'
+          environmentServiceNameAzureRM: 'Service Connection'
