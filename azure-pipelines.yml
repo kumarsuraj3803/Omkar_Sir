@@ -1,5 +1,7 @@
 trigger:
-- main
+ branches:
+   include:
+     - main
 
 
 stages:
@@ -14,6 +16,7 @@ stages:
           terraformVersion: 'latest'
 
       - task: TerraformTask@5
+        displayName: "Terraform_Init"
         inputs:
           provider: 'azurerm'
           command: 'init'
@@ -24,6 +27,7 @@ stages:
           backendAzureRmKey: 'yaml.tfstate'
 
       - task: TerraformTask@5
+        displayName: "Terraform_Plan"
         inputs:
           provider: 'azurerm'
           command: 'plan'
@@ -39,6 +43,7 @@ stages:
       pool: Agent Pool 1
       steps:
       - task: TerraformTask@5
+        displayName: "Terraform_Init"
         inputs:
           provider: 'azurerm'
           command: 'init'
@@ -48,6 +53,7 @@ stages:
           backendAzureRmContainerName: 'containeryaml'
           backendAzureRmKey: 'yaml.tfstate'
       - task: TerraformTask@5
+        displayName: "Terraform_Apply"
         inputs:
           provider: 'azurerm'
           command: 'apply'
