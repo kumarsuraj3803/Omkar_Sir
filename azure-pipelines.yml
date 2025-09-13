@@ -18,7 +18,7 @@ stages:
         inputs:
           provider: 'azurerm'
           command: 'init'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/Omkar_Sir'
+          workingDirectory: '$(System.DefaultWorkingDirectory)'
           backendServiceArm: 'Service Connection'
           backendAzureRmStorageAccountName: 'stg1640'
           backendAzureRmContainerName: 'containeryaml'
@@ -28,7 +28,7 @@ stages:
         inputs:
           provider: 'azurerm'
           command: 'plan'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/Omkar_Sir'
+          workingDirectory: '$(System.DefaultWorkingDirectory)'
           environmentServiceNameAzureRM: 'Service Connection'
 
   - stage: Apply
@@ -43,5 +43,5 @@ stages:
         inputs:
           provider: 'azurerm'
           command: 'apply'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/Omkar_Sir'
+          workingDirectory: '$(System.DefaultWorkingDirectory)'
           environmentServiceNameAzureRM: 'Service Connection'
